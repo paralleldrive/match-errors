@@ -8,7 +8,7 @@
     "typecheck": "npx -p typescript tsc --rootDir . src/test.js --allowJs --checkJs --noEmit --lib es6 --jsx react && echo 'TypeScript check complete.'",
     "ts": "npm run -s typecheck",
     "unit": "node src/test.js",
-    "test": "watch 'clear && npm run -s unit && npm run -s lint && npm run -s typecheck' src",
+    "test": "watch 'clear && npm run -s unit && npm run -s lint' src",
     "debug": "node --inspect-brk src/test.js",
     "test-coverage": "nyc npm test",
     "test-coverage-ci": "nyc --reporter=text-lcov npm test",
