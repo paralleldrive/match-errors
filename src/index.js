@@ -11,7 +11,7 @@ const handleErrors = curry(
 
     const isHandled = Object.entries(handlers).reduce(
       (isHandled, [key, handler]) => {
-        if (isHandled) return;
+        if (isHandled) return isHandled;
         if (errorMatches(key, error)) {
           handler(error);
           return true;

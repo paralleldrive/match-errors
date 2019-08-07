@@ -75,6 +75,31 @@ describe('Match Errors', async assert => {
   }
 
   {
+    const messages = [];
+    const log = message => messages.push(message);
+    const error = new Error('SomethingWrong: Something is wrong.');
+    const WrongHandler = () => {
+      throw new Error('Wrong handler called!');
+    };
+
+    const resultError = Try(
+      handleErrors,
+      {
+        SomethingWrong: log,
+        WrongHandler
+      },
+      error
+    );
+
+    assert({
+      given: 'multiple handlers with matching handler first',
+      should: 'call the matching handler and not throw',
+      actual: resultError,
+      expected: undefined
+    });
+  }
+
+  {
     const WrongHandler = () => {
       throw new Error('Wrong handler called!');
     };
