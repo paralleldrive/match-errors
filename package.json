@@ -1,0 +1,48 @@
+{
+  "name": "match-errors",
+  "version": "1.0.0",
+  "description": "Quickly match errors to the appropriate error handler. No more if/switch/else/case messes.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix src && echo 'Lint complete.'",
+    "typecheck": "npx -p typescript tsc --rootDir . src/test.js --allowJs --checkJs --noEmit --lib es6 --jsx react && echo 'TypeScript check complete.'",
+    "ts": "npm run -s typecheck",
+    "unit": "node src/test.js",
+    "test": "npm run -s unit && npm run -s lint",
+    "watch": "watch 'clear && npm run -s unit && npm run -s lint' src",
+    "debug": "node --inspect-brk src/test.js",
+    "test-coverage": "nyc npm test",
+    "test-coverage-ci": "nyc --reporter=text-lcov npm test",
+    "show-coverage-ci": "nyc report --reporter=text-lcov | coveralls",
+    "show-coverage-text": "nyc report --reporter=text || echo \"Run 'npm run test-coverage' first.\"",
+    "show-coverage-html": "open coverage/index.html || echo \"Run 'npm run test-coverage' first.\"",
+    "watch": "watch 'clear && npm run -s unit | tap-nirvana && npm run -s lint' src",
+    "precommit": "npm run -s test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericelliott/match-errors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericelliott/match-errors/issues"
+  },
+  "homepage": "https://github.com/ericelliott/match-errors#readme",
+  "devDependencies": {
+    "coveralls": "3.0.5",
+    "eslint": "6.1.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "markdownlint-cli": "0.17.0",
+    "nyc": "14.1.1",
+    "prettier": "1.18.2",
+    "riteway": "6.1.0",
+    "tap-nirvana": "1.1.0",
+    "textlint": "11.3.1",
+    "textlint-rule-common-misspellings": "1.0.1",
+    "textlint-rule-terminology": "1.1.30",
+    "watch": "1.0.2"
+  }
+}
