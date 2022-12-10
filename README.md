@@ -1,5 +1,7 @@
 # MatchErrors
 
+# Status: Deprecated in favor of [error-causes](https://github.com/paralleldrive/error-causes) which uses the ES2022 error `.cause` property for matching.
+
 Quickly match errors to the appropriate error handler. No more if/switch/else/case messes.
 
 ## Why MatchErrors?
